@@ -35,6 +35,9 @@ struct DetailView: View {
                 .font(.title)
                 .foregroundColor(.secondary)
             
+            Text("Date added: \(formatDate(book.date ?? Date.now))")
+                .padding()
+            
             Text(book.review ?? "No review")
                 .padding()
             
@@ -79,6 +82,16 @@ struct DetailView: View {
         } else {
             return Text("Unknown genre")
         }
+    }
+    
+    func formatDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        
+        dateFormatter.locale = Locale(identifier: "en_UK")
+        
+        return dateFormatter.string(from: date)
     }
     
     
