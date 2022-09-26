@@ -29,6 +29,7 @@ SortDescriptor(\.author)]) var books: FetchedResults<Book>
                             VStack(alignment: .leading) {
                                 Text(book.title ?? "Unknown Title")
                                     .font(.headline)
+                                    .foregroundColor(book.rating > 1 ? .accentColor : .red)
                                 Text(book.author ?? "Unknown Author")
                                     .foregroundColor(.secondary)
                             }
